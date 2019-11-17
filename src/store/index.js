@@ -43,7 +43,7 @@ export default new Vuex.Store({
         client_secret: process.env.VUE_APP_CLIENtSECRET,
       };
       context.commit('LOADING', true);
-      await Axios.post('/token', qs.stringify(oauth), config)
+      await Axios.post(process.env.VUE_APP_KKBOXAUTH, qs.stringify(oauth), config)
         .then((res) => {
           context.commit('KKBOXTOKEN', res.data);
 
