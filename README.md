@@ -57,23 +57,23 @@
 
 ### 過場動畫
 
-![六腳跳舞](https://imgur.com/qxuAvWT)
+![六腳跳舞](https://i.imgur.com/oF59Qqn.gif)
 
 ### 首頁
 
-![首頁](https://imgur.com/2iYCo4h)
+![首頁](https://i.imgur.com/2iYCo4h.png)
 
 ### 查詢
 
-![查詢](https://imgur.com/eIj52cd)
+![查詢](https://i.imgur.com/eIj52cd.png)
 
 ### 播放介面
 
-![播放介面](https://imgur.com/2ERJ4oN)
+![播放介面](https://i.imgur.com/2ERJ4oN.png)
 
 ### 風格查詢
 
-![風格查詢](https://imgur.com/15YZaBj)
+![風格查詢](https://i.imgur.com/15YZaBj.png)
 
 ### 小遊戲
 
@@ -82,19 +82,19 @@
 - 一般模式
 - 30 秒模式
 
-![小遊戲](https://imgur.com/EEGH37Q)
+![小遊戲](https://i.imgur.com/EEGH37Q.png)
 
 #### 一般模式
 
-![選取風格](https://imgur.com/s3lxC1i)
+![選取風格](https://i.imgur.com/s3lxC1i.png)
 
-![播放歌曲](https://imgur.com/RdLTAlz)
+![播放歌曲](https://i.imgur.com/RdLTAlz.png)
 
 #### 30 秒模式
 
-![30 秒模式](https://imgur.com/TF8JoDI)
+![30 秒模式](https://i.imgur.com/C0Pt9Zx.png)
 
-![播放中](https://imgur.com/G3w1R5z)
+![播放中](https://i.imgur.com/TF8JoDI.png)
 
 ## 聲明
 
