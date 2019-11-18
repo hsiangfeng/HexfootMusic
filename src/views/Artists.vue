@@ -1,17 +1,16 @@
 <template lang="pug" >
-  main
+  section.container
     Loading(:isLoading="isLoading")
-    section.container
-      .row
-        .col-md-2.col-4(v-for="item, index in searchResult.data", :key="index")
-          a.text-decoration-none.text-dark(href="#", @click.prevent="playMusic(item)")
-            img.img-fluid(:src="item.images[1].url")
-            p
-              span.sub-title {{ item.name }}
-        .col-md-2.col-4.bg-dark.d-flex.justify-content-center.align-items-center
-          .text-center.text-white
-            p 想找其他歌手的歌曲?
-            router-link(to="/search").btn.btn-outline-primary 返回搜尋
+    .row
+      .col-md-2.col-4(v-for="item, index in searchResult.data", :key="index")
+        a.text-decoration-none.text-dark(href="#", @click.prevent="playMusic(item)")
+          img.img-fluid(:src="item.images[1].url")
+          p
+            span.sub-title {{ item.name }}
+      .col-md-2.col-4.bg-dark.d-flex.justify-content-center.align-items-center
+        .text-center.text-white
+          p 想找其他歌手的歌曲?
+          router-link(to="/search").btn.btn-outline-primary 返回搜尋
     PlayMusicModel(:musicSrc="musicObject")
 </template>
 
@@ -72,11 +71,11 @@ export default {
   },
   methods: {
     getSearch() {
-      this.$store.commit('isLoading', true);
+      this.$store.commit('LOADING', true);
       this.$http.get(`${process.env.VUE_APP_KKBOXURL}/artists/${this.artistsid}/albums?territory=TW`, this.AJAXConfig)
         .then((res) => {
           this.searchResult = res.data;
-          this.$store.commit('isLoading', false);
+          this.$store.commit('LOADING', false);
         });
     },
     playMusic(item) {
@@ -84,12 +83,13 @@ export default {
       this.musicObject.type = 'album';
       this.musicObject.terr = 'TW';
       this.musicObject.lang = 'TC';
+      this.musicObject.autoplay = true;
       $('#musicModal').modal('show');
     },
     ...mapActions(['getToken']),
   },
   computed: {
-    ...mapGetters(['AJAXConfig']),
+    ...mapGetters(['isLoading', 'AJAXConfig']),
   },
   async created() {
     await this.getToken();
@@ -97,13 +97,16 @@ export default {
     this.artistsid = this.$route.params.artistsid;
     this.getSearch();
   },
-  beforeRouteUpdate(to, from, next) {
-    this.searchData = to.query.q;
-    this.getSearch();
-    next();
+  mounted() {
+    $('#musicModal').on('hidden.bs.modal', () => {
+      this.musicObject = {
+        id: '0otAoi0Eu_GpAJGfcF',
+        type: 'album',
+        terr: 'TW',
+        lang: 'TC',
+        autoplay: false,
+      };
+    });
   },
 };
 </script>
-
-<style lang="scss">
-</style>

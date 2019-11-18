@@ -1,25 +1,23 @@
 <template lang="pug">
-  main
+  section.container
     Loading(:isLoading="isLoading")
-    section.container
-      h2
-        | 最新發行
-        |
-        span.sub-title {{ categoriesData.title }}
-        |
-        | 專輯歌曲
-      .row
-        .col-md-2.col-4(v-for="item, index in categoriesData.albums.data", :key="index")
-          a.text-decoration-none.text-dark(href="#", @click.prevent="playMusic(item)")
-            img.img-fluid(:src="item.images[1].url")
-            p
-              span.sub-title {{ item.name }}
-        .col-md-2.col-4.bg-dark.d-flex.justify-content-center.align-items-center
-          .text-center.text-white
-            p 想繼續試聽其他歌?
-            router-link(to="/").btn.btn-outline-primary 返回首頁
+    h2
+      | 最新發行
+      |
+      span.sub-title {{ categoriesData.title }}
+      |
+      | 專輯歌曲
+    .row
+      .col-md-2.col-4(v-for="item, index in categoriesData.albums.data", :key="index")
+        a.text-decoration-none.text-dark(href="#", @click.prevent="playMusic(item)")
+          img.img-fluid(:src="item.images[1].url")
+          p
+            span.sub-title {{ item.name }}
+      .col-md-2.col-4.bg-dark.d-flex.justify-content-center.align-items-center
+        .text-center.text-white
+          p 想繼續試聽其他歌?
+          router-link(to="/").btn.btn-outline-primary 返回首頁
     PlayMusicModel(:musicSrc="musicObject")
-
 </template>
 
 <script>
@@ -50,11 +48,11 @@ export default {
   },
   methods: {
     getCategories() {
-      this.$store.commit('isLoading', true);
+      this.$store.commit('LOADING', true);
       this.$http.get(`${process.env.VUE_APP_KKBOXURL}/new-release-categories/${this.categoriesid}?territory=TW`, this.AJAXConfig)
         .then((res) => {
           this.categoriesData = res.data;
-          this.$store.commit('isLoading', false);
+          this.$store.commit('LOADING', false);
         });
     },
     playMusic(item) {

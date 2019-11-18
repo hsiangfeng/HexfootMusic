@@ -1,5 +1,5 @@
 <template lang="pug">
-  main.bg-dark
+  .bg-dark
     Loading(:isLoading="isLoading")
     ul.nav.justify-content-center.align-items-center
       li.nav-item
@@ -34,7 +34,7 @@ export default {
     return {
       hotDate: '',
       musicList: '',
-      musicID: '',
+      musicID: '4n5yIXzY3TYupQyjvw',
       musicImgsrc: {},
     };
   },
@@ -64,6 +64,7 @@ export default {
   created() {
     if (!this.readyMusic.id) {
       this.$router.push('/');
+      return;
     }
     this.getMusiclist();
   },
@@ -84,6 +85,9 @@ export default {
 }
 .title-image {
   height: calc(100vh - 80px - 140px);
+  @media (max-width: 768px) {
+    height: auto;
+  }
 }
 .music-overflow {
   overflow-x: hidden;

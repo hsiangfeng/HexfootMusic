@@ -1,15 +1,14 @@
 <template lang="pug">
-  section
-    #musicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
-      .modal-dialog(role='document')
-        .modal-content.bg-dark.overflow-hidden
-          .modal-header
-            h5#exampleModalLabel.modal-title.text-white
-              | 現在播放 {{ musicSrc.title }}
-            button.close(type='button', data-dismiss='modal', aria-label='Close')
-              span(aria-hidden='true').text-white ×
-          .modal-body.iframe-hideborder
-            iframe(:src="`https://widget.kkbox.com/v1/?id=${musicSrc.id}&type=${musicSrc.type}&terr=${musicSrc.terr}&lang=${musicSrc.lang}&autoplay=${musicSrc.autoplay}`", frameBorder="0", allow="autoplay").iframe#iframeID
+  #musicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content.bg-dark.overflow-hidden
+        .modal-header
+          h5#exampleModalLabel.modal-title.text-white
+            | 現在播放 {{ musicSrc.title }}
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true').text-white ×
+        .modal-body.iframe-hideborder
+          iframe(:src="`https://widget.kkbox.com/v1/?id=${musicSrc.id}&type=${musicSrc.type}&terr=${musicSrc.terr}&lang=${musicSrc.lang}&autoplay=${musicSrc.autoplay}`", frameBorder="0", allow="autoplay").iframe#iframeID
 </template>
 
 <script>
@@ -17,6 +16,15 @@ export default {
   props: {
     musicSrc: {
       type: Object,
+      default() {
+        return {
+          id: '0otAoi0Eu_GpAJGfcF',
+          type: 'album',
+          terr: 'TW',
+          lang: 'TC',
+          autoplay: false,
+        };
+      },
     },
   },
   data() {

@@ -1,37 +1,36 @@
 <template lang="pug" >
-  main
+  section.container
     Loading(:isLoading="isLoading")
-    section.container
-      h3
-        | 搜尋到的相關歌手有
-        |
-        span.sub-title {{ searchResult.artists.data.length }}
-        |
-        | 位
-      swiper(:options='swiperOption', v-if="searchResult.artists.data.length > 0")
-        swiper-slide(v-for="item, index in searchResult.artists.data", :key="index")
-          router-link(:to="`/Artists/${item.id}`").music-play.text-decoration-none
-            img(:src="item.images[1].url").img-fluid
-            p.text-dark.font-weight-bold
-              span.sub-title {{ item.name }}
-        .swiper-button-prev(slot='button-prev')
-        .swiper-button-next(slot='button-next')
-      h3
-        | 相關歌曲有
-        |
-        span.sub-title {{ searchResult.tracks.data.length }}
-        |
-        | 曲
-      .row
-        .col-md-2.col-4(v-for="item, index in searchResult.tracks.data", :key="index")
-          a.text-decoration-none.text-dark(href="#", @click.prevent="playMusic(item.album)")
-            img.img-fluid(:src="item.album.images[1].url")
-            p
-              span.sub-title {{ item.album.name }}
-        .col-md-2.col-4.bg-dark.d-flex.justify-content-center.align-items-center
-          .text-center.text-white
-            p 想繼續試聽其他歌?
-            router-link(to="/").btn.btn-outline-primary 返回首頁
+    h3
+      | 搜尋到的相關歌手有
+      |
+      span.sub-title {{ searchResult.artists.data.length }}
+      |
+      | 位
+    swiper(:options='swiperOption', v-if="searchResult.artists.data.length > 0")
+      swiper-slide(v-for="item, index in searchResult.artists.data", :key="index")
+        router-link(:to="`/Artists/${item.id}`").music-play.text-decoration-none
+          img(:src="item.images[1].url").img-fluid
+          p.text-dark.font-weight-bold
+            span.sub-title {{ item.name }}
+      .swiper-button-prev(slot='button-prev')
+      .swiper-button-next(slot='button-next')
+    h3
+      | 相關歌曲有
+      |
+      span.sub-title {{ searchResult.tracks.data.length }}
+      |
+      | 曲
+    .row
+      .col-md-2.col-4(v-for="item, index in searchResult.tracks.data", :key="index")
+        a.text-decoration-none.text-dark(href="#", @click.prevent="playMusic(item.album)")
+          img.img-fluid(:src="item.album.images[1].url")
+          p
+            span.sub-title {{ item.album.name }}
+      .col-md-2.col-4.bg-dark.d-flex.justify-content-center.align-items-center
+        .text-center.text-white
+          p 想繼續試聽其他歌?
+          router-link(to="/").btn.btn-outline-primary 返回首頁
     PlayMusicModel(:musicSrc="musicObject")
 </template>
 

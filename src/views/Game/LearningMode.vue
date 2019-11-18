@@ -1,45 +1,44 @@
 <template lang="pug">
-  main
+  section.game-section
     Loading(:isLoading="isLoading")
-    section.section
-      .container(v-if="!score.status")
-        //- 挑戰起始畫面
-        .srart-bg.d-flex.justify-content-center.align-items-center.flex-column(v-if="playStatus")
-          p.h3.text-primary.z-index-1 點擊 開始挑戰 後將會播放歌曲 30 秒。
-          .music-start.z-index-1
-            button.btn.btn-outline-primary.btn-lg(type='button', @click="initGame")
-              | 開始挑戰
-        //- 音樂播放畫面
-        .srart-bg.d-flex.justify-content-center.align-items-center.flex-column.w-100(v-if="musicPlay.status")
-          radial-progress-bar.position-relative.text-white(:diameter='progressOption.diameter', :completed-steps='progressOption.completedSteps', :total-steps='progressOption.totalSteps')
-            .play-bg
-            .play-title
-              font-awesome-icon(:icon="['fas', 'sync']", size="3x", v-if="musicPlay.status" spin).my-5
-              font-awesome-icon(:icon="['fas', 'stop']", size="3x", v-else="musicPlay.status").my-5
-              p
-                | 現正播放第 {{ musicPlay.number }} 首
-              p(v-if="progressOption.completedSteps < 10") 00:0{{ progressOption.completedSteps }}
-              p(v-else) 00:{{ progressOption.completedSteps }}
-          p.sub-title.text-white.z-index-1 請在音樂播放完畢後選出答案
-        //- 開始猜歌曲
-        div(v-else-if="!playStatus && !musicPlay.status")
-          .answer-bg
-            h3.text-primary.z-index-1 請問您剛剛聽到的歌曲名稱是?
-          .row
-            .col-md-6.col-6(v-for="item in filterData").py-2
-              a.btn-answer(href="#", @click.prevent="resetGame(item)")
-                | {{ item.name }}
-        //- 結算成績
-      .container(v-else)
+    .container(v-if="!score.status")
+      //- 挑戰起始畫面
+      .srart-bg.d-flex.justify-content-center.align-items-center.flex-column(v-if="playStatus")
+        p.h3.text-primary.z-index-1 點擊 開始挑戰 後將會播放歌曲 30 秒。
+        .music-start.z-index-1
+          button.btn.btn-outline-primary.btn-lg(type='button', @click="initGame")
+            | 開始挑戰
+      //- 音樂播放畫面
+      .srart-bg.d-flex.justify-content-center.align-items-center.flex-column.w-100(v-if="musicPlay.status")
+        radial-progress-bar.position-relative.text-white(:diameter='progressOption.diameter', :completed-steps='progressOption.completedSteps', :total-steps='progressOption.totalSteps')
+          .play-bg
+          .play-title
+            font-awesome-icon(:icon="['fas', 'sync']", size="3x", v-if="musicPlay.status" spin).my-5
+            font-awesome-icon(:icon="['fas', 'stop']", size="3x", v-else="musicPlay.status").my-5
+            p
+              | 現正播放第 {{ musicPlay.number }} 首
+            p(v-if="progressOption.completedSteps < 10") 00:0{{ progressOption.completedSteps }}
+            p(v-else) 00:{{ progressOption.completedSteps }}
+        p.sub-title.text-white.z-index-1 請在音樂播放完畢後選出答案
+      //- 開始猜歌曲
+      div(v-else-if="!playStatus && !musicPlay.status")
+        .answer-bg
+          h3.text-primary.z-index-1 請問您剛剛聽到的歌曲名稱是?
         .row
-          .col-md-12.text-center
-            h3 總題數為 {{ musicPlay.kkboxMusic.length / 4 }} 題
-          .col-md-6.col-6.text-center.h4
-            | 您目前答對 {{ score.answerNum }} 題
-          .col-md-6.col-6.text-center.h4
-            | 您目前答錯 {{ score.wrongNum }} 題
-          .col-md-12
-            | 您的分數為 {{ score.total - ( score.wrongNum * 4) }}
+          .col-md-6.col-6(v-for="item in filterData").py-2
+            a.btn-answer(href="#", @click.prevent="resetGame(item)")
+              | {{ item.name }}
+      //- 結算成績
+    .container(v-else)
+      .row
+        .col-md-12.text-center
+          h3 總題數為 {{ musicPlay.kkboxMusic.length / 4 }} 題
+        .col-md-6.col-6.text-center.h4
+          | 您目前答對 {{ score.answerNum }} 題
+        .col-md-6.col-6.text-center.h4
+          | 您目前答錯 {{ score.wrongNum }} 題
+        .col-md-12
+          | 您的分數為 {{ score.total - ( score.wrongNum * 4) }}
     //- 音樂播放器
     .iframe.d-none
       iframe(src='https://widget.kkbox.com/v1/?id=SoKONLgs1DbhbrbMq3&type=song&terr=TW&lang=TC', frameBorder="0")#iframeID
@@ -61,7 +60,6 @@ export default {
         setInter: null,
         setTime: null,
       },
-
       playStatus: true,
       musicPlay: {
         number: 1,

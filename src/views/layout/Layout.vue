@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app
+  main
     Navbar
     Header.header
     router-view
