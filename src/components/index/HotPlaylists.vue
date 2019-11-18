@@ -3,11 +3,11 @@
     h3 熱門歌單
     .row
       .col-md-3.col-6(v-for="item in hotList.data")
-        a(href="#" @click.prevent="playView(item)").music-play.text-decoration-none
+        a(href="#", @click.prevent="playView(item)").music-play.text-decoration-none
           img(:src="item.images[0].url").img-fluid
           .playbox
             .onplay.d-flex.justify-content-center.align-items-center
-              font-awesome-icon(:icon="['far', 'play-circle']" size="3x")
+              font-awesome-icon(:icon="['far', 'play-circle']", size="3x")
           .text-dark.font-weight-bold.sub-title {{ item.title }}
 
 </template>

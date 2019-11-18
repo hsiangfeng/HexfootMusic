@@ -2,7 +2,7 @@
   section
     h3 歌曲風格
     swiper(:options='swiperOption' v-if="styleList")
-      swiper-slide(v-for="item, index in styleList" :key="index").swiper-style
+      swiper-slide(v-for="item, index in styleList", :key="index").swiper-style
         router-link(:to="`/categories/${item.id}`").text-decoration
           .style-box
             p.font-weight-bold.m-0 ♫ {{ item.title }} 風格

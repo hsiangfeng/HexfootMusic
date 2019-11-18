@@ -5,11 +5,11 @@
       h3
         | 搜尋到的相關歌手有
         |
-        span.sub-title  {{ searchResult.artists.data.length }}
+        span.sub-title {{ searchResult.artists.data.length }}
         |
         | 位
-      swiper(:options='swiperOption' v-if="searchResult.artists.data.length > 0")
-        swiper-slide(v-for="item, index in searchResult.artists.data" :key="index")
+      swiper(:options='swiperOption', v-if="searchResult.artists.data.length > 0")
+        swiper-slide(v-for="item, index in searchResult.artists.data", :key="index")
           router-link(:to="`/Artists/${item.id}`").music-play.text-decoration-none
             img(:src="item.images[1].url").img-fluid
             p.text-dark.font-weight-bold
@@ -23,8 +23,8 @@
         |
         | 曲
       .row
-        .col-md-2.col-4(v-for="item, index in searchResult.tracks.data" :key="index")
-          a.text-decoration-none.text-dark(href="#" @click.prevent="playMusic(item.album)")
+        .col-md-2.col-4(v-for="item, index in searchResult.tracks.data", :key="index")
+          a.text-decoration-none.text-dark(href="#", @click.prevent="playMusic(item.album)")
             img.img-fluid(:src="item.album.images[1].url")
             p
               span.sub-title {{ item.album.name }}

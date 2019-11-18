@@ -3,8 +3,8 @@
     Loading(:isLoading="isLoading")
     section.container
       .row
-        .col-md-2.col-4(v-for="item, index in searchResult.data" :key="index")
-          a.text-decoration-none.text-dark(href="#" @click.prevent="playMusic(item)")
+        .col-md-2.col-4(v-for="item, index in searchResult.data", :key="index")
+          a.text-decoration-none.text-dark(href="#", @click.prevent="playMusic(item)")
             img.img-fluid(:src="item.images[1].url")
             p
               span.sub-title {{ item.name }}

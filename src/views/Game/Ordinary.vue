@@ -7,7 +7,7 @@
         .srart-bg.d-flex.justify-content-center.align-items-center.flex-column(v-if="playStatus")
           p.h3.text-primary.z-index-1 點擊 開始挑戰 後將會播放歌曲 30 秒。
           .music-start.z-index-1
-            button.btn.btn-outline-primary.btn-lg(type='button' @click="startGame")
+            button.btn.btn-outline-primary.btn-lg(type='button', @click="startGame")
               | 開始挑戰
         //- 音樂播放畫面
         .srart-bg.d-flex.justify-content-center.align-items-center.flex-column.w-100(v-if="musicPlay.status")
@@ -27,10 +27,13 @@
         .row.srart-bg.text-center.text-primary(v-if="score.status")
           .col-md-12.d-flex.justify-content-center.align-items-center
             h3 總題數為 {{ musicPlay.kkboxMusic.length / 4 }} 題
-          .col-md-6.col-6
+          .col-md-6.col-6.h4
             | 您目前答對 {{ score.answerNum }} 題
-          .col-md-6.col-6
+          .col-md-6.col-6.h4
             | 您目前答錯 {{ score.wrongNum }} 題
+          .col-md-12.text-center
+            router-link(to="/game").btn.btn-primary
+              | 返回遊戲首頁
     //- 音樂播放器
     .iframe.d-none
       iframe(src='https://widget.kkbox.com/v1/?id=SoKONLgs1DbhbrbMq3&type=song&terr=TW&lang=TC', frameBorder="0")#iframeID
@@ -189,7 +192,7 @@ export default {
       top: 0px;
       bottom: 0px;
       border-radius: 10px;
-      background-color: rgba(0, 37, 26, 0.5);
+      background-color: rgba(0, 37, 26, 0.75);
     }
   }
   .play-bg {

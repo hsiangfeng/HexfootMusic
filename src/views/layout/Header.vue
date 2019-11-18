@@ -4,7 +4,7 @@
       .row.bg-text.text-center
         .col-md-12.col-12
           h2.font-weight-bold 豐富音樂自由選
-          vue-typed-js(:strings="['那就來 ♫ 六腳音樂大平台 吧!']" :startDelay="1000").justify-content-center
+          vue-typed-js(:strings="['那就來 ♫ 六腳音樂大平台 吧!']", :startDelay="delay").justify-content-center
             p
               | 想聽歌?
               span.typing
@@ -23,11 +23,11 @@
           h5 多樣支援
           .icons
             a(href="#" target="_blank").pr-1.hex-text
-              font-awesome-icon(:icon="['fab', 'android']" size="2x")
+              font-awesome-icon(:icon="['fab', 'android']", size="2x")
             a(href="#" target="_blank").pr-1.hex-text
-              font-awesome-icon(:icon="['fab', 'apple']" size="2x")
+              font-awesome-icon(:icon="['fab', 'apple']", size="2x")
             a(href="#" target="_blank").hex-text
-              font-awesome-icon(:icon="['fab', 'windows']" size="2x")
+              font-awesome-icon(:icon="['fab', 'windows']", size="2x")
         .col-md-3.col-6
           h5 HexFoot♫ Prime
           p

@@ -5,15 +5,15 @@
       .container.bg-game-select
         div(v-if="!gameMode")
           .row.text-center
-            .col-md-12.text-primary
+            .col-md-12.text-white
               h3 請選擇遊戲模式
               p 一般模式：音樂播放 30 秒後才能選擇答案。
               p 30 秒模式：請在 30 秒內選出歌曲名稱。
               p 推薦遊玩練習模式，30 秒模式可能會因為網路延遲而導致音樂播放延遲。
             .col-md-6.col-6
-              button.btn.btn-primary.btn-lg(type="input" @click="playGameMode('learn')") 練習模式
+              button.btn.btn-primary.btn-lg(type="button", @click="playGameMode('learn')") 練習模式
             .col-md-6.col-6
-              button.btn.btn-primary.btn-lg(type="input" @click="playGameMode('ordinary')") 30 秒模式
+              button.btn.btn-primary.btn-lg(type="button", @click="playGameMode('ordinary')") 30 秒模式
         .text-center(v-if="gameMode === 'ordinary'")
           .row
             .col-md-12.text-primary.font-weight-bold
@@ -119,7 +119,7 @@ export default {
       right: 0px;
       top: 0px;
       bottom: 0px;
-      background-color: rgba(0, 37, 26, 0.5);
+      background-color: rgba(0, 37, 26, 0.75);
       border-radius: 10px;
     }
   }

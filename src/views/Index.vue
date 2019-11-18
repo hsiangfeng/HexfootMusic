@@ -2,9 +2,9 @@
   main
     Loading(:isLoading="isLoading")
     .container
-      HotPlaylists(@HotPlaylists="playMusic" v-if="kkboxToken")
-      Stylelist(@NewReleaseCategories="playMusic" v-if="kkboxToken")
-      Ranking(@Charts="playMusic" v-if="kkboxToken")
+      HotPlaylists(@HotPlaylists="playMusic", v-if="kkboxToken")
+      Stylelist(@NewReleaseCategories="playMusic", v-if="kkboxToken")
+      Ranking(@Charts="playMusic", v-if="kkboxToken")
       Preferential
       PlayMusicModel(:musicSrc="musicObject")
 </template>

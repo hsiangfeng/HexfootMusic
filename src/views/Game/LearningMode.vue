@@ -7,15 +7,15 @@
         .srart-bg.d-flex.justify-content-center.align-items-center.flex-column(v-if="playStatus")
           p.h3.text-primary.z-index-1 點擊 開始挑戰 後將會播放歌曲 30 秒。
           .music-start.z-index-1
-            button.btn.btn-outline-primary.btn-lg(type='button' @click="initGame")
+            button.btn.btn-outline-primary.btn-lg(type='button', @click="initGame")
               | 開始挑戰
         //- 音樂播放畫面
         .srart-bg.d-flex.justify-content-center.align-items-center.flex-column.w-100(v-if="musicPlay.status")
           radial-progress-bar.position-relative.text-white(:diameter='progressOption.diameter', :completed-steps='progressOption.completedSteps', :total-steps='progressOption.totalSteps')
             .play-bg
             .play-title
-              font-awesome-icon(:icon="['fas', 'sync']" size="3x" v-if="musicPlay.status" spin).my-5
-              font-awesome-icon(:icon="['fas', 'stop']" size="3x" v-else="musicPlay.status").my-5
+              font-awesome-icon(:icon="['fas', 'sync']", size="3x", v-if="musicPlay.status" spin).my-5
+              font-awesome-icon(:icon="['fas', 'stop']", size="3x", v-else="musicPlay.status").my-5
               p
                 | 現正播放第 {{ musicPlay.number }} 首
               p(v-if="progressOption.completedSteps < 10") 00:0{{ progressOption.completedSteps }}
@@ -34,9 +34,9 @@
         .row
           .col-md-12.text-center
             h3 總題數為 {{ musicPlay.kkboxMusic.length / 4 }} 題
-          .col-md-6.col-6.text-center
+          .col-md-6.col-6.text-center.h4
             | 您目前答對 {{ score.answerNum }} 題
-          .col-md-6.col-6.text-center
+          .col-md-6.col-6.text-center.h4
             | 您目前答錯 {{ score.wrongNum }} 題
           .col-md-12
             | 您的分數為 {{ score.total - ( score.wrongNum * 4) }}

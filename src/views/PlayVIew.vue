@@ -15,7 +15,7 @@
         .col-md-4.col-12
           h5.text-primary {{ readyMusic.title }} 清單
           .music-box.music-overflow
-            a(href="#", v-for="item in musicList.data" @click.prevent="playMusic(item)").music-list
+            a(href="#", v-for="item in musicList.data", @click.prevent="playMusic(item)").music-list
               .music-img
                 img(:src="item.album.artist.images[0].url")
               .music-title

@@ -62,7 +62,7 @@
           .text-center
             p
               span.text-white.h1.sub-title HexfootMusic
-            a(href="#" @click.prevent="buyBtn()").btn.btn-outline-primary.btn-lg 立即購買
+            a(href="#", @click.prevent="buyBtn()").btn.btn-outline-primary.btn-lg 立即購買
 </template>
 
 <script>
