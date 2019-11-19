@@ -29,10 +29,11 @@
 - Vuex
 - Vue-Router
 - Vue Components
+- PWA
 - RWD
 - Bootstrap4
 - jQuery
-- JavaScript(ES6、LocalStorage等)
+- JavaScript(ES6等)
 - PUG
 - SCSS
 - CORS
@@ -41,6 +42,7 @@
 
 ## Vue-Plugin or Other-Plugin
 
+- [Vue-cli-plugin-pwa](https://www.npmjs.com/package/@vue/cli-plugin-pwa)
 - [Vue-fontawesome](https://fontawesome.com/how-to-use/on-the-web/using-with/vuejs)
 - [Vue-axios](https://www.npmjs.com/package/vue-axios)
 - [Vue-typed-js](https://github.com/Orlandster/vue-typed-js)
@@ -48,9 +50,9 @@
 - [Vue-loading-overlay](https://www.npmjs.com/package/vue-loading-overlay)
 - [Vue-router](https://router.vuejs.org/zh/)
 - [Vue-cli-plugin-pug](https://www.npmjs.com/package/vue-cli-plugin-pug)
-- [vue-radial-progress](https://www.npmjs.com/package/vue-radial-progress)
-- [vue-sweetalert2](https://www.npmjs.com/package/vue-sweetalert2)
-- [vue-countup-v2](https://www.npmjs.com/package/vue-countup-v2)
+- [Vue-radial-progress](https://www.npmjs.com/package/vue-radial-progress)
+- [Vue-sweetalert2](https://www.npmjs.com/package/vue-sweetalert2)
+- [Vue-countup-v2](https://www.npmjs.com/package/vue-countup-v2)
 - [Popper.js](https://popper.js.org/)
 
 ## 前端介紹
@@ -95,6 +97,10 @@
 ![30 秒模式](https://i.imgur.com/C0Pt9Zx.png)
 
 ![播放中](https://i.imgur.com/TF8JoDI.png)
+
+## 其他細節
+
+本作品還有支援 PWA，詳情請見作品。
 
 ## 聲明
 
