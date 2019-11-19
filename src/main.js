@@ -26,6 +26,7 @@ import $ from 'jquery';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import './registerServiceWorker';
 
 library.add(fab, far, fas);
 Vue.component('font-awesome-icon', FontAwesomeIcon);

@@ -9,4 +9,11 @@ module.exports = {
       },
     },
   },
+  pwa: {
+    name: 'HexfootMusic',
+    themeColor: '#69F0AE',
+    msTileColor: '#00251a',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+  },
 };
