@@ -25,6 +25,7 @@
 ## 使用技術 & 練習技術
 
 - [KKBOX OPEN API](https://developer.kkbox.com/#/)
+- [YouTube Data API](https://developers.google.com/youtube/v3)
 - Vue Cli 3
 - Vuex
 - Vue-Router
@@ -39,6 +40,7 @@
 - CORS
 - Webpack
 - ESlint(aribnb)
+- Adobe XD
 
 ## Vue-Plugin or Other-Plugin
 
@@ -61,21 +63,27 @@
 
 ![六腳跳舞](https://i.imgur.com/oF59Qqn.gif)
 
+Logo 製作是使用 Adobe XD 製作，並製作兩張圖合成為 Gif 檔。
+
 ### 首頁
 
-![首頁](https://i.imgur.com/2iYCo4h.png)
+![首頁](https://i.imgur.com/xQVwn9B.png)
 
 ### 查詢
 
-![查詢](https://i.imgur.com/eIj52cd.png)
+![查詢](https://i.imgur.com/Yydwh19.png)
 
-### 播放介面
+### KKBOX 播放介面
 
-![播放介面](https://i.imgur.com/2ERJ4oN.png)
+![KKBOX 播放介面](https://i.imgur.com/5yr0sJb.png)
+
+### Youtube 播放介面
+
+![Youtube 播放介面](https://i.imgur.com/aGmm2WI.png)
 
 ### 風格查詢
 
-![風格查詢](https://i.imgur.com/15YZaBj.png)
+![風格查詢](https://i.imgur.com/mxWcYHL.png)
 
 ### 小遊戲
 
@@ -84,19 +92,19 @@
 - 一般模式
 - 30 秒模式
 
-![小遊戲](https://i.imgur.com/EEGH37Q.png)
+![小遊戲](https://i.imgur.com/nutjpma.png)
 
 #### 一般模式
 
-![選取風格](https://i.imgur.com/s3lxC1i.png)
+![選取風格](https://i.imgur.com/BIfgy3r.png)
 
-![播放歌曲](https://i.imgur.com/RdLTAlz.png)
+![播放歌曲](https://i.imgur.com/bKeoO9K.png)
 
 #### 30 秒模式
 
-![30 秒模式](https://i.imgur.com/C0Pt9Zx.png)
+![30 秒模式](https://i.imgur.com/vyB9cae.png)
 
-![播放中](https://i.imgur.com/TF8JoDI.png)
+![挑戰中](https://i.imgur.com/fN5CIgC.png)
 
 ## 其他細節
 
