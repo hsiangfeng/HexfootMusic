@@ -21,6 +21,9 @@
           a(href="https://docs-zhtw.kkbox.codes/docs/overview", target="_blank").d-block
             font-awesome-icon(:icon="['fas','box-open']").mr-1
             | KKBOX OPEN API
+          a(href="https://developers.google.com/youtube/v3", target="_blank").d-block
+            font-awesome-icon(:icon="['fas','box-open']").mr-1
+            | YouTube Data API
           a(href="https://www.hexschool.com/", target="_blank").d-block
             font-awesome-icon(:icon="['fas','school']").mr-1
             | HexSchool
