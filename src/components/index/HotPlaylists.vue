@@ -1,6 +1,6 @@
 <template lang="pug">
   section
-    h3 熱門歌單
+    h3 KKBOX OPEN API 熱門歌單
     .row
       .col-md-3.col-6(v-for="item in hotList.data")
         a(href="#", @click.prevent="playView(item)").music-play.text-decoration-none

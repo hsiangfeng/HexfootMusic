@@ -1,6 +1,6 @@
 <template lang="pug">
   section
-    h3 排行榜
+    h3 KKBOX OPNE API 排行榜
     swiper(:options='swiperOption', v-if="rankingList")
       swiper-slide(v-for="item, index in rankingList.data", :key="index")
         a(href="#" @click.prevent="playMusic(item)").music-play.text-decoration-none

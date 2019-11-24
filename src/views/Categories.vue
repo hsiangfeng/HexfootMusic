@@ -2,7 +2,7 @@
   section.container
     Loading(:isLoading="isLoading")
     h2
-      | 最新發行
+      | KKBOX OPEN API
       |
       span.sub-title {{ categoriesData.title }}
       |
@@ -15,7 +15,7 @@
             span.sub-title {{ item.name }}
       .col-md-2.col-4.bg-dark.d-flex.justify-content-center.align-items-center
         .text-center.text-white
-          p 想繼續試聽其他歌?
+          p 想看其他 API 串接?
           router-link(to="/").btn.btn-outline-primary 返回首頁
     PlayMusicModel(:musicSrc="musicObject")
 </template>
@@ -36,8 +36,6 @@ export default {
       musicObject: {
         id: '0otAoi0Eu_GpAJGfcF',
         type: 'album',
-        terr: 'TW',
-        lang: 'TC',
         autoplay: false,
       },
     };
@@ -58,10 +56,17 @@ export default {
     playMusic(item) {
       this.musicObject = item;
       this.musicObject.type = 'album';
-      this.musicObject.terr = 'TW';
-      this.musicObject.lang = 'TC';
       this.musicObject.autoplay = true;
       $('#musicModal').modal('show');
+
+      // Hide Stop Music
+      $('#musicModal').on('hidden.bs.modal', () => {
+        this.musicObject = {
+          id: '0otAoi0Eu_GpAJGfcF',
+          type: 'album',
+          autoplay: false,
+        };
+      });
     },
     ...mapActions(['getToken']),
   },
@@ -73,17 +78,6 @@ export default {
 
     this.categoriesid = this.$route.params.categoriesid;
     this.getCategories();
-  },
-  mounted() {
-    $('#musicModal').on('hidden.bs.modal', () => {
-      this.musicObject = {
-        id: '0otAoi0Eu_GpAJGfcF',
-        type: 'album',
-        terr: 'TW',
-        lang: 'TC',
-        autoplay: false,
-      };
-    });
   },
 };
 </script>

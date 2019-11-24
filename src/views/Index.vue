@@ -5,6 +5,7 @@
     Stylelist(@NewReleaseCategories="playMusic", v-if="kkboxToken")
     Ranking(@Charts="playMusic", v-if="kkboxToken")
     Preferential
+    Hexfoot
     PlayMusicModel(:musicSrc="musicObject")
 </template>
 
@@ -21,6 +22,8 @@ import Stylelist from '@/components/index/Stylelist.vue';
 import Ranking from '@/components/index/Ranking.vue';
 // Prime
 import Preferential from '@/components/index/Preferential.vue';
+// 六腳老師
+import Hexfoot from '@/components/index/Hexfoot.vue';
 // 音樂播放視窗
 import PlayMusicModel from '@/components/PlayMusicModel.vue';
 
@@ -30,8 +33,6 @@ export default {
       musicObject: {
         id: 'DZrC8m29ciOFY2JAm3',
         type: 'playlist',
-        terr: 'TW',
-        lang: 'TC',
         autoplay: false,
       },
     };
@@ -42,16 +43,24 @@ export default {
     Stylelist,
     Ranking,
     Preferential,
+    Hexfoot,
     PlayMusicModel,
   },
   methods: {
     playMusic(item) {
       this.musicObject = item;
       this.musicObject.type = 'playlist';
-      this.musicObject.terr = 'TW';
-      this.musicObject.lang = 'TC';
       this.musicObject.autoplay = true;
       $('#musicModal').modal('show');
+
+      // Hide Stop Music
+      $('#musicModal').on('hidden.bs.modal', () => {
+        this.musicObject = {
+          id: '0otAoi0Eu_GpAJGfcF',
+          type: 'album',
+          autoplay: false,
+        };
+      });
     },
     ...mapActions(['getToken']),
   },
@@ -60,17 +69,6 @@ export default {
   },
   async created() {
     await this.getToken();
-  },
-  mounted() {
-    $('#musicModal').on('hidden.bs.modal', () => {
-      this.musicObject = {
-        id: '0otAoi0Eu_GpAJGfcF',
-        type: 'album',
-        terr: 'TW',
-        lang: 'TC',
-        autoplay: false,
-      };
-    });
   },
 };
 </script>

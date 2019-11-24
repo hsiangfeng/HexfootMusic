@@ -8,7 +8,7 @@
           button.close(type='button', data-dismiss='modal', aria-label='Close')
             span(aria-hidden='true').text-white ×
         .modal-body.iframe-hideborder
-          iframe(:src="`https://widget.kkbox.com/v1/?id=${musicSrc.id}&type=${musicSrc.type}&terr=${musicSrc.terr}&lang=${musicSrc.lang}&autoplay=${musicSrc.autoplay}`", frameBorder="0", allow="autoplay").iframe#iframeID
+          iframe(:src="`https://widget.kkbox.com/v1/?id=${musicSrc.id}&type=${musicSrc.type}&terr=TW}&lang=TC&autoplay=${musicSrc.autoplay}`", frameBorder="0", allow="autoplay").iframe#iframeID
 </template>
 
 <script>
@@ -20,8 +20,6 @@ export default {
         return {
           id: '0otAoi0Eu_GpAJGfcF',
           type: 'album',
-          terr: 'TW',
-          lang: 'TC',
           autoplay: false,
         };
       },

@@ -85,17 +85,17 @@ export default {
       this.$store.commit('LOADING', true);
 
       await this.$http.get(`${process.env.VUE_APP_KKBOXURL}/charts/${this.challengeID}/tracks?territory=TW&limit=100`, this.AJAXConfig)
-        .then(async (res) => {
+        .then((res) => {
           this.musicPlay.kkboxMusic = res.data.data;
           this.$store.commit('LOADING', false);
         });
     },
-    async initGame() {
+    initGame() {
       this.$store.commit('LOADING', true);
       this.playStatus = false;
 
-      const randomNum = await this.getRandom(0, 4);
-      this.nowPlayMusic = await this.filterData[randomNum];
+      const randomNum = this.getRandom(0, 4);
+      this.nowPlayMusic = this.filterData[randomNum];
 
       const iframeID = document.getElementById('iframeID');
       iframeID.src = `https://widget.kkbox.com/v1/?id=${this.nowPlayMusic.id}&type=song&terr=TW&lang=TC&autoplay=true`;
@@ -117,8 +117,8 @@ export default {
         this.$store.commit('LOADING', false);
       };
     },
-    async getRandom(min, max) {
-      return await Math.floor(Math.random() * max) + min;
+    getRandom(min, max) {
+      return Math.floor(Math.random() * max) + min;
     },
     resetGame(item) {
       clearTimeout(this.progressOption.setTime);

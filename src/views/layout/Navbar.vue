@@ -12,9 +12,9 @@
               | 首頁
               span.sr-only (current)
           li.nav-item
-            router-link.nav-link.text-white(to='/game') 六腳遊戲
+            router-link.nav-link.text-white(to='/game') 猜歌遊戲
         form.form-inline.my-2.my-lg-0(@submit.prevent="searchSong")
-          input.form-control.mr-sm-2(type='search', aria-label='Search', placeholder="搜尋歌曲、歌手、歌單", v-model="searchData")
+          input.form-control.mr-sm-2(type='search', aria-label='Search', placeholder="KKBOX OPENA API 搜尋歌曲、歌手、歌單", v-model="searchData")
 </template>
 
 <script>

@@ -1,11 +1,11 @@
 <template lang="pug">
   section
-    h3 歌曲風格
+    h3 KKBOX OPEN API 風格清單
     swiper(:options='swiperOption' v-if="styleList")
       swiper-slide(v-for="item, index in styleList", :key="index").swiper-style
         router-link(:to="`/categories/${item.id}`").text-decoration
           .style-box
-            p.font-weight-bold.m-0 ♫ {{ item.title }} 風格
+            p.font-weight-bold.m-0 ♫ {{ item.title }}
       .swiper-button-prev(slot='button-prev')
       .swiper-button-next(slot='button-next')
 </template>
@@ -68,6 +68,7 @@ export default {
     align-items: center;
     height: 200px;
     background-color: rgba(0, 37, 26, 0.5);
+    border-radius: 10px;
     font-size: 24px;
   }
   .swiper-style {

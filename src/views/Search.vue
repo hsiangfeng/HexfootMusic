@@ -2,7 +2,7 @@
   section.container
     Loading(:isLoading="isLoading")
     h3
-      | 搜尋到的相關歌手有
+      | KKBOX OPEN API 搜尋到的相關歌手有
       |
       span.sub-title {{ searchResult.artists.data.length }}
       |
@@ -16,7 +16,7 @@
       .swiper-button-prev(slot='button-prev')
       .swiper-button-next(slot='button-next')
     h3
-      | 相關歌曲有
+      | KKBOX OPEN API 相關歌曲有
       |
       span.sub-title {{ searchResult.tracks.data.length }}
       |
@@ -29,7 +29,7 @@
             span.sub-title {{ item.album.name }}
       .col-md-2.col-4.bg-dark.d-flex.justify-content-center.align-items-center
         .text-center.text-white
-          p 想繼續試聽其他歌?
+          p 想看其他 API 串接?
           router-link(to="/").btn.btn-outline-primary 返回首頁
     PlayMusicModel(:musicSrc="musicObject")
 </template>
@@ -80,8 +80,6 @@ export default {
       musicObject: {
         id: '0otAoi0Eu_GpAJGfcF',
         type: 'album',
-        terr: 'TW',
-        lang: 'TC',
         autoplay: false,
       },
     };
@@ -107,10 +105,15 @@ export default {
     playMusic(item) {
       this.musicObject = item;
       this.musicObject.type = 'album';
-      this.musicObject.terr = 'TW';
-      this.musicObject.lang = 'TC';
       this.musicObject.autoplay = true;
       $('#musicModal').modal('show');
+      $('#musicModal').on('hidden.bs.modal', () => {
+        this.musicObject = {
+          id: '0otAoi0Eu_GpAJGfcF',
+          type: 'album',
+          autoplay: false,
+        };
+      });
     },
     ...mapActions(['getToken']),
   },
@@ -121,17 +124,6 @@ export default {
     await this.getToken();
     this.searchData = this.$route.query.q;
     this.getSearch();
-  },
-  mounted() {
-    $('#musicModal').on('hidden.bs.modal', () => {
-      this.musicObject = {
-        id: '0otAoi0Eu_GpAJGfcF',
-        type: 'album',
-        terr: 'TW',
-        lang: 'TC',
-        autoplay: false,
-      };
-    });
   },
 };
 </script>

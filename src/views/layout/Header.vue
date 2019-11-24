@@ -3,10 +3,9 @@
     .bg-images.container-fluid
       .row.bg-text.text-center
         .col-md-12.col-12
-          h2.font-weight-bold 豐富音樂自由選
-          vue-typed-js(:strings="['那就來 ♫ 六腳音樂大平台 吧!']", :startDelay="delay").justify-content-center
+          h2.font-weight-bold KKBOX OPEN API 串接範例
+          vue-typed-js(:strings="['KKBOX x HexfootMusic API 串接範例']", :startDelay="delay").justify-content-center
             p
-              | 想聽歌?
               span.typing
         .col-md-3.col-6
           h5 最多曲風
@@ -29,13 +28,8 @@
             a(href="#" target="_blank").hex-text
               font-awesome-icon(:icon="['fab', 'windows']", size="2x")
         .col-md-3.col-6
-          h5 HexFoot♫ Prime
-          p
-            | 每月
-            |
-            ICountUp(:delay="delay", :endVal="PrimeVal")
-            |
-            | 元
+          h5 HexFoot♫
+          p 你享受不到
 </template>
 
 <script>
@@ -48,7 +42,6 @@ export default {
   data() {
     return {
       delay: 1000,
-      PrimeVal: 199,
       StyleVal: 19,
       MaxVal: 4500,
     };
