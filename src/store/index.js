@@ -31,6 +31,11 @@ export default new Vuex.Store({
       // 註解為另一種 CORS 解法
       // const cors = 'https://cors-anywhere.herokuapp.com/';
       // const kkboxOauth = '/token';
+      let oauthAPI = `https://cors-anywhere.herokuapp.com/${process.env.VUE_APP_KKBOXAUTH}`;
+
+      if (process.env.NODE_ENV === 'development') {
+        oauthAPI = '/token';
+      }
       const config = {
         headers: {
           Accept: 'application/x-www-form-urlencoded',
@@ -43,7 +48,7 @@ export default new Vuex.Store({
         client_secret: process.env.VUE_APP_CLIENtSECRET,
       };
       context.commit('LOADING', true);
-      await Axios.post(process.env.VUE_APP_KKBOXAUTH, qs.stringify(oauth), config)
+      await Axios.post(oauthAPI, qs.stringify(oauth), config)
         .then((res) => {
           context.commit('KKBOXTOKEN', res.data);
 
