@@ -23,6 +23,8 @@ import '../node_modules/sweetalert2/dist/sweetalert2.min.css';
 import 'bootstrap';
 import $ from 'jquery';
 
+import VueMeta from 'vue-meta';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -42,6 +44,10 @@ Vue.use(VueAwesomeSwiper);
 Vue.use(VueTypedJs);
 
 Vue.use(VueProgress);
+
+Vue.use(VueMeta, {
+  refreshOnceOnNavigation: true,
+});
 
 Vue.config.productionTip = false;
 

@@ -65,6 +65,11 @@ export default {
       },
     };
   },
+  metaInfo() {
+    return {
+      title: this.metaTitle || 'HexfootMusic',
+    };
+  },
   components: {
     Loading,
     PlayMusicModel,
@@ -93,16 +98,20 @@ export default {
         };
       });
     },
+    getTitle() {
+      this.$store.dispatch('getMetaTitle', this.$route.meta.title);
+    },
     ...mapActions(['getToken']),
   },
   computed: {
-    ...mapGetters(['isLoading', 'AJAXConfig']),
+    ...mapGetters(['isLoading', 'AJAXConfig', 'metaTitle']),
   },
   async created() {
     await this.getToken();
 
     this.artistsid = this.$route.params.artistsid;
     this.getSearch();
+    this.getTitle();
   },
 };
 </script>

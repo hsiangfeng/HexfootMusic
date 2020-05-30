@@ -11,6 +11,7 @@ export default new Vuex.Store({
     kkboxToken: '',
     AJAXConfig: null,
     readyMusic: {},
+    metaTitle: '',
   },
   mutations: {
     KKBOXTOKEN(state, payload) {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     },
     READYMUSIC(state, payload) {
       state.readyMusic = payload;
+    },
+    SETTITLE(state, payload) {
+      state.metaTitle = payload;
     },
   },
   actions: {
@@ -62,6 +66,9 @@ export default new Vuex.Store({
           context.commit('LOADING', false);
         });
     },
+    getMetaTitle(context, title) {
+      context.commit('SETTITLE', title);
+    },
   },
   getters: {
     kkboxToken(state) {
@@ -75,6 +82,9 @@ export default new Vuex.Store({
     },
     readyMusic(state) {
       return state.readyMusic;
+    },
+    metaTitle(state) {
+      return state.metaTitle;
     },
   },
   modules: {

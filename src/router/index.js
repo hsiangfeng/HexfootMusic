@@ -13,21 +13,33 @@ const routes = [
         path: '',
         name: 'index',
         component: () => import('../views/Index.vue'),
+        meta: {
+          title: 'HexfootMusic - 六腳大平台',
+        },
       },
       {
         path: 'categories/:categoriesid',
         name: 'Categories',
         component: () => import('../views/Categories.vue'),
+        meta: {
+          title: 'HexfootMusic - 六腳大分類',
+        },
       },
       {
         path: 'search',
         name: 'Search',
         component: () => import('../views/Search.vue'),
+        meta: {
+          title: 'HexfootMusic - 六腳強力搜尋器',
+        },
       },
       {
         path: 'artists/:artistsid',
         name: 'Artists',
         component: () => import('../views/Artists.vue'),
+        meta: {
+          title: 'HexfootMusic - 六腳藝人',
+        },
       },
     ],
   },
@@ -40,16 +52,25 @@ const routes = [
         path: '',
         name: 'Select',
         component: () => import('../views/Game/GameSelect.vue'),
+        meta: {
+          title: 'HexfootMusic - 選擇遊戲',
+        },
       },
       {
         path: 'Learningmode/:id',
         name: 'Learningmode',
         component: () => import('../views/Game/LearningMode.vue'),
+        meta: {
+          title: 'HexfootMusic - 練習模式',
+        },
       },
       {
         path: 'ordinary/:id',
         name: 'Ordinary',
         component: () => import('../views/Game/Ordinary.vue'),
+        meta: {
+          title: 'HexfootMusic - 30 秒挑戰模式',
+        },
       },
     ],
   },
@@ -57,6 +78,9 @@ const routes = [
     path: '/playview',
     name: 'playview',
     component: () => import('../views/PlayVIew.vue'),
+    meta: {
+      title: 'HexfootMusic - 播放清單',
+    },
   },
 ];
 

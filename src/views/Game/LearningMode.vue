@@ -80,6 +80,11 @@ export default {
       },
     };
   },
+  metaInfo() {
+    return {
+      title: this.metaTitle || 'HexfootMusic',
+    };
+  },
   methods: {
     async getMusic() {
       this.$store.commit('LOADING', true);
@@ -141,6 +146,9 @@ export default {
 
       this.initGame();
     },
+    getTitle() {
+      this.$store.dispatch('getMetaTitle', this.$route.meta.title);
+    },
     ...mapActions(['getToken']),
   },
   components: {
@@ -151,7 +159,10 @@ export default {
     filterData() {
       return this.musicPlay.kkboxMusic.slice(this.musicPlay.startNum, this.musicPlay.endNum);
     },
-    ...mapGetters(['isLoading', 'AJAXConfig']),
+    ...mapGetters(['isLoading', 'AJAXConfig', 'metaTitle']),
+  },
+  created() {
+    this.getTitle();
   },
   async mounted() {
     await this.getToken();

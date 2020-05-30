@@ -37,6 +37,11 @@ export default {
       },
     };
   },
+  metaInfo() {
+    return {
+      title: this.metaTitle || 'HexfootMusic',
+    };
+  },
   components: {
     Loading,
     HotPlaylists,
@@ -62,13 +67,17 @@ export default {
         };
       });
     },
+    getTitle() {
+      this.$store.dispatch('getMetaTitle', this.$route.meta.title);
+    },
     ...mapActions(['getToken']),
   },
   computed: {
-    ...mapGetters(['isLoading', 'kkboxToken']),
+    ...mapGetters(['isLoading', 'kkboxToken', 'metaTitle']),
   },
   async created() {
     await this.getToken();
+    this.getTitle();
   },
 };
 </script>

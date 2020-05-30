@@ -73,6 +73,11 @@ export default {
       gameMode: '',
     };
   },
+  metaInfo() {
+    return {
+      title: this.metaTitle || 'HexfootMusic',
+    };
+  },
   methods: {
     getReleaseCategories() {
       this.$store.commit('LOADING', true);
@@ -86,17 +91,21 @@ export default {
     playGameMode(model) {
       this.gameMode = model;
     },
+    getTitle() {
+      this.$store.dispatch('getMetaTitle', this.$route.meta.title);
+    },
     ...mapActions(['getToken']),
   },
   components: {
     Loading,
   },
   computed: {
-    ...mapGetters(['isLoading', 'AJAXConfig']),
+    ...mapGetters(['isLoading', 'AJAXConfig', 'metaTitle']),
   },
   async created() {
     await this.getToken();
     this.getReleaseCategories();
+    this.getTitle();
   },
 };
 </script>

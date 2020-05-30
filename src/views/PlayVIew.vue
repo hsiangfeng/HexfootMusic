@@ -39,6 +39,11 @@ export default {
       musicID: '4n5yIXzY3TYupQyjvw',
     };
   },
+  metaInfo() {
+    return {
+      title: this.metaTitle || 'HexfootMusic',
+    };
+  },
   components: {
     Loading,
     Navbar,
@@ -69,10 +74,13 @@ export default {
         this.$store.commit('LOADING', false);
       });
     },
+    getTitle() {
+      this.$store.dispatch('getMetaTitle', this.$route.meta.title);
+    },
     ...mapActions(['getToken']),
   },
   computed: {
-    ...mapGetters(['isLoading', 'AJAXConfig', 'readyMusic']),
+    ...mapGetters(['isLoading', 'AJAXConfig', 'readyMusic', 'metaTitle']),
   },
   created() {
     if (!this.readyMusic.id) {
@@ -80,6 +88,7 @@ export default {
       return;
     }
     this.getMusiclist();
+    this.getTitle();
   },
 };
 </script>
