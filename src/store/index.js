@@ -49,7 +49,7 @@ export default new Vuex.Store({
       const oauth = {
         grant_type: process.env.VUE_APP_GRANTTYPE,
         client_id: process.env.VUE_APP_CLINETID,
-        client_secret: process.env.VUE_APP_CLIENtSECRET,
+        client_secret: process.env.VUE_APP_CLIENTSECRET,
       };
       context.commit('LOADING', true);
       await Axios.post(oauthAPI, qs.stringify(oauth), config)
