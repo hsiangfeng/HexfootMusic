@@ -106,8 +106,21 @@ Logo 製作是使用 Adobe XD 製作，並製作兩張圖合成為 Gif 檔。
 
 ![挑戰中](https://i.imgur.com/fN5CIgC.png)
 
-## 其他細節
+## Project setup
+### development
+```
+npm install
+npm run serve
+```
+### .env 設定
+* [建立 App 並獲得 Client ID 及 Client Secret](https://docs-zhtw.kkbox.codes/#overview--step-2-%E7%8D%B2%E5%8F%96-access-token)
+```
+修改 .env 的 YOUR_CLIENT_ID 及 YOUR_CLIENT_SECRET
+VUE_APP_CLINETID=YOUR_CLIENT_ID
+VUE_APP_CLIENTSECRET=YOUR_CLIENT_SECRET
+```
 
+## 其他細節
 本作品還有支援 PWA，詳情請見作品。
 
 ## 聲明
